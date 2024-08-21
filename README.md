@@ -5,16 +5,6 @@ Ancient Greek Vocabulary
 [![License][License badge]][License URL]
 ![Last Commit][last commit badge]
 
-A Quizlet alternative to study Ancient Greek vocabulary with a much better visual. Please try the
-<img src="https://github.com/QubitPi/QubitPi/blob/master/img/可莉-25.png?raw=true" width="70px"> [App](https://qubitpi.github.io/ancient-greek-vocabulary/) 
-
-The essence of this project is to implement the philosophy that __all languages are different__, whether it's their
-fonts, areas of difficulties, or history.
-
-I was stuyding German and wanted some movie to sharpen my listening skills. So I watched this movie called "Generation War". It is this movie that teach me there were also great people in Nazi Germany.
-I name this project: (...)
-
-
 How Did the Project Start
 -------------------------
 
@@ -25,7 +15,6 @@ the other day and saw this horribly formatted Greek text:
 <div align="center">
     <img src="./bad-font.png" width="60%">
 </div>
-
 
 The Greek font looks terribly uncomfortable, because Quizlet uses the same font for all languages and I certainly don't
 like it. So I decided to make my own flash card with a much better font (see the Note below) that results something like

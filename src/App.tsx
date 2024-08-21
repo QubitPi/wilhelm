@@ -40,6 +40,8 @@ function App() {
   const [hoveredItem, setHoveredItem] = useState<string>(ANCIENT_GREEK)
   const [vocabulary, setVocabulary] = useState(greekVocabulary)
 
+  const [aboutModalShow, setAboutModalShow] = useState<boolean>(false)
+
 
   const handleToggleClick = () => {
     setToggled(!toggled)
@@ -100,7 +102,20 @@ function App() {
               </div>
 
               <div className="about">
-                <About className="icon"/>
+                <About className="icon" onClick={() => setAboutModalShow(true)}/>
+                <div className={aboutModalShow ? "about-modal active" : "about-modal"}>
+                  <div className={aboutModalShow ? "overlay active" : "overlay"} onClick={() => setAboutModalShow(false)}></div>
+                  <div className={aboutModalShow ? "about-modal-content active" : "about-modal-content"}>
+                    <h2>About Wilhelm</h2>
+                    <p>
+                      All languages are unique, whether it's their fonts, areas of difficulties, or history.
+                    </p>
+
+                    <p>
+                      Wihelm is a Quizlet alternative to study vocabularies with a much better visual.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -118,10 +133,10 @@ function App() {
 
                 <table>
                   <thead>
-                    <tr>
-                      <td>Word</td>
-                      <td>Definition</td>
-                      <td>Status</td>
+                  <tr>
+                    <td>Word</td>
+                    <td>Definition</td>
+                    <td>Status</td>
                     </tr>
                   </thead>
 
