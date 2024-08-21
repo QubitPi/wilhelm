@@ -1,0 +1,80 @@
+Guten Tag	Good day
+Hallo	Hello
+Ich heiße ...	I am called ...
+Mein Name ist ...	My name is ...
+bitte	please
+Wie ist Ihr Name?	What's your name?
+Wie heißen Sie?	What are you called?
+Guten Morgen	Good morning
+Guten Abend	Good evening
+Gute Nacht	Good night
+Auf Wiedersehen	Goodbye
+Wo wohnen Sie?	Where do you live?
+Ich wohne in ...	I live in ...
+Ich wohne jetzt in ...	I live in ... now
+Woher kommen Sie?	Where do you come from?
+Ich komme aus ...	I come from ...
+Ich komme aus ... , aus ...	I'm from (country), (city)
+Deutschland	Germany
+Frankreich	France
+Großbritannien	Great Britain
+den USA	United States
+Österreich	Austria
+die Schweiz	Switzerland
+in der Schweiz	in Switzerland
+Belgien	Belgium
+Irland	Ireland
+Schottland	Scotland
+Dänemark	Denmark
+Italien	Italy
+Schweden	Sweden
+Luxemburg	Luxembourg
+England	England
+die Niederlande	Netherlands
+Spanien	Spain
+die Türkei	turkey
+Griechenland	Greece
+Polen	Poland
+Ungarn	Hungary
+Portugal	Portugal
+Wales	Wales
+Brüssel	Brussels
+Amsterdam	Amsterdam
+Geburtsort	place of birth
+Wohnort	place of residence
+aber	but
+dort	there
+jetzt	now
+Entschuldigen Sie	excuse me
+ein paar Fragen	a few questions
+Darf ich Ihnen ein paar Fragen stellen?	Can I ask you a few questions?
+sehr gut	very good
+ausgezeichnet	excellent
+prima	great
+gut	good
+es geht	ok
+nicht gut	not good
+schlecht	bad
+scheußlich	terrible
+Wie geht es Ihnen?	How are you? (formal)
+Wie geht's?	How are you? (informal)
+Und Ihnen?	And you? How about you? (formal)
+Das freut mich	I'm glad
+nicht	not
+heute	today
+na ja	oh well
+Mir geht es gut	I am fine
+Mir geht's gut	I'm fine
+wirklich	really
+Das tut mir Leid	I'm sorry
+nicht mehr	no longer
+noch	still
+nicht ... sondern	not... but...
+arbeiten	to work
+schön	beautiful, nice
+der Bahnhof	the railway station
+liegen	to lie, be located
+Schreiben Sie die Fragen	Write the questions
+der Flohmarkt	the flea market
+die Bäckerei	the bakery
+die Kneipe	the pub

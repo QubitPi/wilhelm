@@ -1,6 +1,5 @@
 {
   "name": "ancient-greek-vocabulary",
-  "homepage": "https://qubitpi.github.io/ancient-greek-vocabulary",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

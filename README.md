@@ -8,6 +8,13 @@ Ancient Greek Vocabulary
 A Quizlet alternative to study Ancient Greek vocabulary with a much better visual. Please try the
 <img src="https://github.com/QubitPi/QubitPi/blob/master/img/可莉-25.png?raw=true" width="70px"> [App](https://qubitpi.github.io/ancient-greek-vocabulary/) 
 
+The essence of this project is to implement the philosophy that __all languages are different__, whether it's their
+fonts, areas of difficulties, or history.
+
+I was stuyding German and wanted some movie to sharpen my listening skills. So I watched this movie called "Generation War". It is this movie that teach me there were also great people in Nazi Germany.
+I name this project: (...)
+
+
 How Did the Project Start
 -------------------------
 
@@ -56,11 +63,11 @@ yarn start
 > [!TIP]
 >
 > The vocabulary is from [Dickinson College Commentaries](https://dcc.dickinson.edu/greek-core-list) and is processed
-> with a [Python script](./scripts/extractor.py):
+> with a [Python script](./scripts/greek-core-list-extractor.py):
 >
 > ```console
 > cd scripts
-> python3 extractor.py
+> python3 greek-core-list-extractor.py
 > ```
 > 
 > The output of the script is the [vocabulary.js](src/vocabulary.js) which is loaded when React App starts.
