@@ -1,9 +1,9 @@
-Ancient Greek Vocabulary
-========================
+Wilhelm
+=======
 
 ![Node Version][node version badge]
-[![License][License badge]][License URL]
-![Last Commit][last commit badge]
+[![Deployment][Deployment badge]][Deployment dashboard URL]
+[![Apache License][Apache License Badge]][Apache License, Version 2.0]
 
 How Did the Project Start
 -------------------------
@@ -49,33 +49,16 @@ yarn
 yarn start
 ```
 
-> [!TIP]
->
-> The vocabulary is from [Dickinson College Commentaries](https://dcc.dickinson.edu/greek-core-list) and is processed
-> with a [Python script](./scripts/greek-core-list-extractor.py):
->
-> ```console
-> cd scripts
-> python3 greek-core-list-extractor.py
-> ```
-> 
-> The output of the script is the [vocabulary.js](src/vocabulary.js) which is loaded when React App starts.
-
 License
 -------
 
-The use and distribution terms for [ancient-greek-vocabulary]() are covered by the
-[Apache License, Version 2.0][License URL].
+The use and distribution terms for [wilhelm]() are covered by the [Apache License, Version 2.0].
 
-<div align="center">
-    <a href="https://opensource.org/licenses">
-        <img align="center" width="50%" alt="License Illustration" src="https://github.com/QubitPi/QubitPi/blob/master/img/apache-2.png?raw=true">
-    </a>
-</div>
+[Apache License, Version 2.0]: https://www.apache.org/licenses/LICENSE-2.0
+[Apache License Badge]: https://img.shields.io/badge/Apache%202.0-F25910.svg?style=for-the-badge&logo=Apache&logoColor=white
 
-[last commit badge]: https://img.shields.io/github/last-commit/QubitPi/ancient-greek-vocabulary/master?logo=github&style=for-the-badge
-[License badge]: https://img.shields.io/badge/Apache%202.0-F25910.svg?style=for-the-badge&logo=Apache&logoColor=white
-[License URL]: https://www.apache.org/licenses/LICENSE-2.0
+[Deployment badge]: https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white
+[Deployment dashboard URL]: https://vercel.com/qubitpis-projects/wilhelm
 
 [node version badge]: https://img.shields.io/badge/NODE-18-339933?logo=Node.js&logoColor=white&labelColor=66cc33&style=for-the-badge
 
