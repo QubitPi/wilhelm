@@ -8,17 +8,15 @@ Wilhelm
 How Did the Project Start
 -------------------------
 
-I was
-[using Quizlet flashcard to study Ancient Greek Vocabulary](https://quizlet.com/865653695/ancient-greek-vocabulary-flash-cards/) 
-the other day and saw this horribly formatted Greek text:
+I was using Quizlet to study Ancient Greek vocabulary the other day and witnessed this horribly formatted Greek text on
+their online flashcard:
 
 <div align="center">
     <img src="./bad-font.png" width="60%">
 </div>
 
-The Greek font looks terribly uncomfortable, because Quizlet uses the same font for all languages and I certainly don't
-like it. So I decided to make my own flash card with a much better font (see the Note below) that results something like
-this:
+The Greek font looked terribly uncomfortable; Quizlet used the same font for all languages and I certainly didn't like
+it. So I decided to make my own flash card which ended up with much better visual like this:
 
 <div align="center">
     <img src="./good-font.png" width="70%">
@@ -27,24 +25,29 @@ this:
 > [!NOTE]
 >
 > The new font was inspired by the Zeph fonts invented by
-> [the Loeb Classical Library in Harvard University](https://www.loebclassics.com/page/logo), which did a really good
-> job on publishing Ancient Greek and Latin original texts.
+> [the Loeb Classical Library in Harvard University](https://www.hup.harvard.edu/series/loeb-classical-library), who did
+> a pretty good job on publishing Ancient Greek and Latin original texts.
 > 
-> The Zeph fonts are based on 'Porson' Greek according to the information provided by Harvard University Press (HUP).
-> But the Zeph* fonts themselves seem to be custom commissions for HUP for use in Loeb books, which means the fonts are
+> The Zeph fonts are based on 'Porson' Greek
+> [according to the information provided by Harvard University Press](https://www.loebclassics.com/page/logo) (HUP). But
+> the Zeph* fonts themselves seem to be custom commissions for HUP for use in Loeb books, which means the fonts are
 > close-sourced[^1].
 > 
-> The closest font I found, thus, is the [GFS Porson for Ancient Greek](https://www.oocities.org/greekfonts/) which
-> ended up being the Greek font I use for the flash cards in this project
+> The closest font I found, thus, is the [GFS Porson for Ancient Greek](https://www.oocities.org/greekfonts/) which ended up being the Greek font I use
+> for the flash cards in this project
 
 Development
 -----------
 
+> [!IMPORTANT]
+> 
+> Wilhelm requires Node 18+
+
 To start flashcards locally:
 
 ```console
-git clone git@github.com:QubitPi/ancient-greek-vocabulary.git
-cd ancient-greek-vocabulary
+git clone git@github.com:QubitPi/wilhelm.git
+cd wilhelm
 yarn
 yarn start
 ```
