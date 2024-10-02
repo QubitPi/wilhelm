@@ -41,7 +41,7 @@ Development
 
 > [!IMPORTANT]
 > 
-> Wilhelm requires Node 18+
+> Wilhelm requires Node 18 or above
 
 To start flashcards locally:
 
