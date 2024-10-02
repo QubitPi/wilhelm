@@ -52,6 +52,8 @@ yarn
 yarn start
 ```
 
+Then visit localhost:3000
+
 License
 -------
 
