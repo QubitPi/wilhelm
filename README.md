@@ -52,7 +52,7 @@ yarn
 yarn start
 ```
 
-Then visit localhost:3000
+Then visit [localhost:3000](http://localhost:3000/)
 
 License
 -------
