@@ -1,0 +1,93 @@
+@font-face {
+    font-family: Porson;
+    src: url(Porson.ttf);
+}
+
+@font-face {
+    font-family: BreitkopfFraktur;
+    src: url(BreitkopfFraktur.ttf);
+}
+
+@font-face {
+    font-family: SweynheimPannartz;
+    src: url(SweynheimPannartz.ttf);
+}
+
+@font-face {
+    font-family: Ubuntu;
+    src: url(Ubuntu-R.ttf);
+}
+
+.greek-side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Porson;
+    font-size: 30px;
+}
+
+.german-side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: BreitkopfFraktur;
+    font-size: 30px;
+}
+
+.latin-side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: SweynheimPannartz;
+    font-size: 30px;
+}
+
+.english-side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-family: Ubuntu;
+}
+
+.flashcards {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.flashcard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vocArrow {
+    position: relative;
+    background: white;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin: 15px;
+    transition: 0.4s ease;
+}
+.vocArrow:hover {
+    box-shadow: 0px 0px 20px 20px blue;
+}
+.vocArrow div {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    border-top: 8px solid blue;
+    border-left: 8px solid blue;
+    transform: rotate(45deg);
+    left: 27.5px;
+    top: 35px;
+}
+.prev {
+    transform: rotate(-90deg);
+}
+.next {
+    transform: rotate(90deg);
+}

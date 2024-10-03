@@ -20,7 +20,7 @@ import Navigation from "./components/Navigation";
 import TopBar from "./components/TopBar";
 import {useAppSelector} from "./hooks";
 import {selectNavigationExpanded} from "./appSlice";
-import FlashCards from "./components/FlashCards";
+import FlashCards from "./components/flashcards/FlashCards";
 
 function App() {
   const toggled = useAppSelector(selectNavigationExpanded)
