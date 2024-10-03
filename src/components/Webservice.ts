@@ -17,8 +17,8 @@ export async function getVocabulariesByLanguage(languge: Language): Promise<Map<
   const vocabulary = new Map<string, string>();
 
   const url = new URL(LANGUAGES.get(languge) as string, WEBSERVICE_URL)
-  url.searchParams.append("perPage", "-1")
-  url.searchParams.append("page", "-1")
+  url.searchParams.append("perPage", "10000")
+  url.searchParams.append("page", "1")
   await fetch(url)
       .then(response => response.json())
       .then(data => {
