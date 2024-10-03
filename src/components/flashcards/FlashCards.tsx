@@ -25,8 +25,12 @@ export default function FlashCards() {
       termToDefs.forEach((definition: string, term: string) => {
         currentVocabulary.push({
           id: idx,
-          frontHTML: <div className={STYLE_MAPPING.get(language)}>{term}</div>,
-          backHTML: <div className="english-side">{definition}</div>
+          frontHTML: <div className="flashcard-text">
+            <div className={STYLE_MAPPING.get(language)}>{term}</div>
+          </div>,
+          backHTML: <div className="flashcard-text">
+            <div className="english-side">{definition}</div>
+          </div>
         })
         idx++;
       })
@@ -48,10 +52,8 @@ export default function FlashCards() {
       }
       {
           vocabulary.length > 0 &&
-          <div className="flashcard">
             <Flashcard frontHTML={vocabulary[displayedIndex]["frontHTML"]}
                        backHTML={vocabulary[displayedIndex]["backHTML"]}/>
-          </div>
       }
       {
           displayedIndex < vocabulary.length - 1 &&
