@@ -1,5 +1,5 @@
 /**
- * Copyright QubitPi
+ * Copyright Jiaqi Liu
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,14 +21,19 @@ import TopBar from "./components/TopBar";
 import {useAppSelector} from "./hooks";
 import {selectHoveredLanguage, selectNavigationExpanded} from "./appSlice";
 import FlashCard from "./components/flashcard";
-import {getVocabulariesByLanguage} from "./components/Webservice";
+import {expand, getVocabulariesByLanguage} from "./components/Webservice";
+import GraphBrowser from "./components/graph";
 
 
 function App() {
-  const navigationToggled = useAppSelector(selectNavigationExpanded)
+  const navigationExpanded = useAppSelector(selectNavigationExpanded)
 
   const [vocabulary, setVocabulary] = useState<{ term: string; definition: string }[]>([])
   const [displayedIndex, setDisplayedIndex] = useState<number>(0)
+  const [displayedGraph, setDisplayedGraph] = useState({
+    nodes: [],
+    links: []
+  })
 
   const language = useAppSelector(selectHoveredLanguage)
 
@@ -46,15 +51,42 @@ function App() {
   }, [language])
 
   useEffect(() => {
-    // intentionally left blank
-  }, [displayedIndex]);
+    if (vocabulary.length <= 0) {
+      return
+    }
+
+    expand(vocabulary[displayedIndex]["term"]).then(graph => {
+      setDisplayedGraph({
+        nodes: (graph.get("nodes") as any[]).map(node => {return {
+          id: node.id,
+          elementId: node.id,
+          labels: node.language ? ["Term"] : ["Definition"],
+          properties: {
+            name: node.name
+          },
+          propertyTypes: {
+            name: "string"
+          }
+        }}) as [],
+        links: (graph.get("links") as any[]).map(link => {return {
+          id: link.sourceNodeId + link.targetNodeId,
+          elementId: link.sourceNodeId + link.targetNodeId,
+          startNodeId: link.sourceNodeId,
+          endNodeId: link.targetNodeId,
+          type: link.name,
+          properties: {},
+          propertyTypes: {}
+        }}) as []
+      })
+    })
+  }, [vocabulary, displayedIndex]);
 
 
   return (
       <>
         <div className="container">
           <Navigation/>
-          <div className={navigationToggled ? "main active" : "main"}>
+          <div className={navigationExpanded ? "main active" : "main"}>
             <TopBar/>
 
             <div className="flashcards">
@@ -79,6 +111,13 @@ function App() {
                   }}>
                     <div></div>
                   </div>
+              }
+            </div>
+
+            <div className="graph-browser">
+              {
+                vocabulary.length > 0 &&
+                  <GraphBrowser nodes={displayedGraph.nodes} links={displayedGraph.links}/>
               }
             </div>
           </div>
