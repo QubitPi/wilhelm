@@ -13,26 +13,74 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 
 import Navigation from "./components/Navigation";
 import TopBar from "./components/TopBar";
 import {useAppSelector} from "./hooks";
-import {selectNavigationExpanded} from "./appSlice";
-import FlashCards from "./components/flashcards/FlashCards";
+import {selectHoveredLanguage, selectNavigationExpanded} from "./appSlice";
+import FlashCard from "./components/flashcard";
+import {getVocabulariesByLanguage} from "./components/Webservice";
+
 
 function App() {
-  const toggled = useAppSelector(selectNavigationExpanded)
+  const navigationToggled = useAppSelector(selectNavigationExpanded)
+
+  const [vocabulary, setVocabulary] = useState<{ term: string; definition: string }[]>([])
+  const [displayedIndex, setDisplayedIndex] = useState<number>(0)
+
+  const language = useAppSelector(selectHoveredLanguage)
+
+  useEffect(() => {
+    getVocabulariesByLanguage(language).then(termToDefs => {
+      const currentVocabulary: { term: string; definition: string }[] = []
+      termToDefs.forEach((definition: string, term: string) => {
+        currentVocabulary.push({
+          term: term,
+          definition: definition
+        })
+      })
+      setVocabulary(currentVocabulary)
+    })
+  }, [language])
+
+  useEffect(() => {
+    // intentionally left blank
+  }, [displayedIndex]);
 
 
   return (
       <>
         <div className="container">
-          <Navigation />
-          <div className={toggled ? "main active" : "main"}>
-            <TopBar />
-            <FlashCards />
+          <Navigation/>
+          <div className={navigationToggled ? "main active" : "main"}>
+            <TopBar/>
+
+            <div className="flashcards">
+              {
+                  displayedIndex > 0 &&
+                  <div className="vocArrow prev" onClick={() => setDisplayedIndex(displayedIndex - 1)}>
+                    <div></div>
+                  </div>
+              }
+              {
+                  vocabulary.length > 0 &&
+                  <FlashCard
+                      language={language}
+                      term={vocabulary[displayedIndex]["term"]}
+                      definition={vocabulary[displayedIndex]["definition"]}
+                  />
+              }
+              {
+                  displayedIndex < vocabulary.length - 1 &&
+                  <div className="vocArrow next" onClick={() => {
+                    setDisplayedIndex(displayedIndex + 1)
+                  }}>
+                    <div></div>
+                  </div>
+              }
+            </div>
           </div>
         </div>
       </>

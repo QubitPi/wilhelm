@@ -49,6 +49,42 @@ body {
   left: 80px;
 }
 
+/* ====================== Flashcard Section ========================== */
+.flashcards {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.vocArrow {
+  position: relative;
+  background: white;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin: 15px;
+  transition: 0.4s ease;
+}
+.vocArrow:hover {
+  box-shadow: 0px 0px 20px 20px blue;
+}
+.vocArrow div {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  border-top: 8px solid blue;
+  border-left: 8px solid blue;
+  transform: rotate(45deg);
+  left: 27.5px;
+  top: 35px;
+}
+.prev {
+  transform: rotate(-90deg);
+}
+.next {
+  transform: rotate(90deg);
+}
+
 /* ====================== Responsive Design ========================== */
 @media (max-width: 991px) {
   .navigation {
