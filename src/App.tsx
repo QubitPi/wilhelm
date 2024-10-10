@@ -21,15 +21,15 @@ import TopBar from "./components/TopBar";
 import {useAppSelector} from "./hooks";
 import {selectHoveredLanguage, selectNavigationExpanded} from "./appSlice";
 import FlashCard from "./components/flashcard";
-import {expand, getVocabulariesByLanguage} from "./components/Webservice";
+import {expand, getCountByLanguage, getVocabulariesByLanguage} from "./components/Webservice";
 import GraphBrowser from "./components/graph";
-
 
 function App() {
   const navigationExpanded = useAppSelector(selectNavigationExpanded)
 
-  const [vocabulary, setVocabulary] = useState<{ term: string; definition: string }[]>([])
-  const [displayedIndex, setDisplayedIndex] = useState<number>(0)
+  const [vocabulary, setVocabulary] = useState<{ term: string; definition: string }>()
+  const [vocabularyCount, setVocabularyCount] = useState<number>(0)
+  const [displayedIndex, setDisplayedIndex] = useState<number>(1)
   const [displayedGraph, setDisplayedGraph] = useState({
     nodes: [],
     links: []
@@ -38,24 +38,23 @@ function App() {
   const language = useAppSelector(selectHoveredLanguage)
 
   useEffect(() => {
-    getVocabulariesByLanguage(language).then(termToDefs => {
-      const currentVocabulary: { term: string; definition: string }[] = []
-      termToDefs.forEach((definition: string, term: string) => {
-        currentVocabulary.push({
-          term: term,
-          definition: definition
-        })
-      })
-      setVocabulary(currentVocabulary)
+    getCountByLanguage(language).then(count => {
+      setVocabularyCount(count)
     })
-  }, [language])
+  }, [language]);
 
   useEffect(() => {
-    if (vocabulary.length <= 0) {
+    getVocabulariesByLanguage(language, displayedIndex).then(vocabulary => {
+      setVocabulary({term: vocabulary.term, definition: vocabulary.definition})
+    })
+  }, [language, displayedIndex])
+
+  useEffect(() => {
+    if (vocabulary == null) {
       return
     }
 
-    expand(vocabulary[displayedIndex]["term"]).then(graph => {
+    expand(vocabulary.term).then(graph => {
       setDisplayedGraph({
         nodes: (graph.get("nodes") as any[]).map(node => {return {
           id: node.id,
@@ -79,7 +78,7 @@ function App() {
         }}) as []
       })
     })
-  }, [vocabulary, displayedIndex]);
+  }, [vocabulary]);
 
 
   return (
@@ -91,21 +90,21 @@ function App() {
 
             <div className="flashcards">
               {
-                  displayedIndex > 0 &&
+                  displayedIndex > 1 &&
                   <div className="vocArrow prev" onClick={() => setDisplayedIndex(displayedIndex - 1)}>
                     <div></div>
                   </div>
               }
               {
-                  vocabulary.length > 0 &&
+                  vocabulary != null &&
                   <FlashCard
                       language={language}
-                      term={vocabulary[displayedIndex]["term"]}
-                      definition={vocabulary[displayedIndex]["definition"]}
+                      term={vocabulary.term}
+                      definition={vocabulary.definition}
                   />
               }
               {
-                  displayedIndex < vocabulary.length - 1 &&
+                  displayedIndex < vocabularyCount &&
                   <div className="vocArrow next" onClick={() => {
                     setDisplayedIndex(displayedIndex + 1)
                   }}>
@@ -116,7 +115,7 @@ function App() {
 
             <div className="graph-browser">
               {
-                vocabulary.length > 0 &&
+                displayedGraph.nodes.length > 0 &&
                   <GraphBrowser nodes={displayedGraph.nodes} links={displayedGraph.links}/>
               }
             </div>
