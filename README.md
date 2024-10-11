@@ -2,8 +2,16 @@ Wilhelm
 =======
 
 ![Node Version][node version badge]
-[![Deployment][Deployment badge]][Deployment dashboard URL]
+[![GitHub workflow status badge][GitHub workflow status badge]][GitHub workflow status URL]
 [![Apache License][Apache License Badge]][Apache License, Version 2.0]
+
+__Wilhelm__ is a Quizlet alternative that helps with learning German, Ancient Greek, and Latin with 2 unique features:
+
+1. Applying historical fonts that is unique to each language
+2. Utilizing knowledge graph to visualize connections among Indo-European languages which greatly make multilingual
+   study much more efficient
+
+Please check out the app on [wilhelmlang.com](https://wilhelmlang.com/)
 
 How Did Project Wilhelm Start
 -----------------------------
@@ -41,7 +49,7 @@ I certainly disavowed it and decided to make my own flash card which ended up wi
 > The closest font I found, thus, is the [GFS Porson for Ancient Greek](https://www.oocities.org/greekfonts/) which ended up being the Greek font I use
 > for the flash cards in this project
 
-### Why Do I Decid to Scale Project Wilhelm?
+### Why Do I Decide to Scale Project Wilhelm?
 
 Right after, I began to realize I could simply throw Quizlet to trash. I deleted my Quizlet account and relied solely on
 Wilhelm. I was happy that I found a lot more pleasure studying languages with Wilhelm than I did on Quizlet.
@@ -59,7 +67,9 @@ Development
 > 
 > Wilhelm requires Node 18 or above
 
-To start flashcards locally:
+### Starting Locally
+
+To start Wilhelm locally:
 
 ```console
 git clone git@github.com:QubitPi/wilhelm.git
@@ -70,6 +80,14 @@ yarn start
 
 Then visit [localhost:3000](http://localhost:3000/)
 
+### Testing
+
+- Unit Tests: TBA
+- E2E Tests: [Cypress] is used for E2E tests. To run them locally, first start the Wilhelm app locally with
+  `yarn start`. Then we can run E2E tests either in terminal with `yarn e2e` or through Cypress UI with `yarn cy:open`.
+  If E2E tests fail in CI/CD, the testing screenshot and video will be generated and can be downloaded at the bottom of
+  each action run page
+
 License
 -------
 
@@ -78,8 +96,10 @@ The use and distribution terms for [wilhelm]() are covered by the [Apache Licens
 [Apache License, Version 2.0]: https://www.apache.org/licenses/LICENSE-2.0
 [Apache License Badge]: https://img.shields.io/badge/Apache%202.0-F25910.svg?style=for-the-badge&logo=Apache&logoColor=white
 
-[Deployment badge]: https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white
-[Deployment dashboard URL]: https://vercel.com/qubitpis-projects/wilhelm
+[Cypress]: https://cypress.qubitpi.org/
+
+[GitHub workflow status badge]: https://img.shields.io/github/actions/workflow/status/QubitPi/wilhelm/ci-cd.yaml?branch=master&style=for-the-badge&logo=github&logoColor=white&label=CI/CD
+[GitHub workflow status URL]: https://github.com/QubitPi/wilhelm/actions/workflows/ci-cd.yaml
 
 [node version badge]: https://img.shields.io/badge/NODE-18-339933?logo=Node.js&logoColor=white&labelColor=66cc33&style=for-the-badge
 
