@@ -16,7 +16,7 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
 
-import Navigation from "./components/Navigation";
+import Navigation from "./components/navigation/Navigation";
 import TopBar from "./components/TopBar";
 import {useAppSelector} from "./hooks";
 import {selectHoveredLanguage, selectNavigationExpanded} from "./appSlice";
@@ -85,7 +85,7 @@ function App() {
       <>
         <div className="container">
           <Navigation/>
-          <div className={navigationExpanded ? "main active" : "main"}>
+          <div className={navigationExpanded ? "main" : "main active"}>
             <TopBar/>
 
             <div className="flashcards">

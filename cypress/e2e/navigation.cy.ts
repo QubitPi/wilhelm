@@ -14,42 +14,22 @@
  * limitations under the License.
  */
 
-describe('Home Page Rendering', () => {
+describe('Navigation Bar Rendering', () => {
   beforeEach(() => {
     cy
         .visit("http://localhost:3000/")
   })
 
-  it('displays flashcard section', () => {
-    cy
-        .get('*[class^="flashcards"]')
-        .should("exist");
-  })
-
-  it('displays graph section', () => {
-    cy
-        .get('*[class^="graph-browser"]')
-        .should("exist");
-  })
-
-  it('displays navigation bar on the left', () => {
-    cy
-        .get('*[class="navigation"]')
-        .should("exist");
-  })
-
-  it('initially hides the details of navigation bar', () => {
-    cy
-        .get('*[class="navigation active"]')
-        .should("not.exist");
-  })
-
-  it('expands navigation bar once toggled', () => {
+  it('contains, inside navigation bar, 1 header and 3 languages - Ancient Greek, Latin, and German', () => {
     cy
         .get('*[class="toggle"]')
         .click()
         .get('*[class="navigation active"]')
-        .should("exist");
+        .get("ul > li")
+        .should('have.length', 4)
+        .get('ul > li:nth-child(1) > a > span').should('have.text', "Wilhelm")
+        .get('ul > li:nth-child(2) > a > span').should('have.text', "Ancient Greek")
+        .get('ul > li:nth-child(3) > a > span').should('have.text', "Latin")
+        .get('ul > li:nth-child(4) > a > span').should('have.text', "German")
   })
 })
-

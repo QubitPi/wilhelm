@@ -14,42 +14,25 @@
  * limitations under the License.
  */
 
-describe('Home Page Rendering', () => {
+describe('Flashcard Section Rendering', () => {
   beforeEach(() => {
     cy
         .visit("http://localhost:3000/")
   })
 
-  it('displays flashcard section', () => {
+  it('always displays the forward button', () => {
     cy
-        .get('*[class^="flashcards"]')
+        .get('*[class="vocArrow next"]')
         .should("exist");
   })
 
-  it('displays graph section', () => {
+  it('displays the backward button once the forward button is clicked', () => {
     cy
-        .get('*[class^="graph-browser"]')
-        .should("exist");
-  })
-
-  it('displays navigation bar on the left', () => {
-    cy
-        .get('*[class="navigation"]')
-        .should("exist");
-  })
-
-  it('initially hides the details of navigation bar', () => {
-    cy
-        .get('*[class="navigation active"]')
-        .should("not.exist");
-  })
-
-  it('expands navigation bar once toggled', () => {
-    cy
-        .get('*[class="toggle"]')
+        .get('*[class="vocArrow prev"]')
+        .should("not.exist")
+        .get('*[class="vocArrow next"]')
         .click()
-        .get('*[class="navigation active"]')
-        .should("exist");
+        .get('*[class="vocArrow prev"]')
+        .should("exist")
   })
 })
-

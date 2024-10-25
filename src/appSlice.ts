@@ -30,7 +30,7 @@ interface AppState {
 }
 
 const initialState: AppState = {
-  navigationExpanded: true,
+  navigationExpanded: false,
   hoveredLanguage: ANCIENT_GREEK,
   aboutModalShow: false
 }

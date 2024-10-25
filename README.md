@@ -26,7 +26,7 @@ this horribly formatted Greek text
 </div>
 
 Quizlet didn't believe that each language shines with their unique fonts from history (such as
-[楷书](https://archive.org/details/20211001_20211001_1559/mode/2up) for Chinese,
+[楷书](http://www.9610.com/zhmf/daode.htm) for Chinese,
 [Gothic](https://hmmlschool.org/latin/) for Latin, and [Fraktur](https://en.wikipedia.org/wiki/Fraktur) for German).
 They simply applied a monofont for all languages which, in the case of Greek, made the text look terribly uncomfortable.
 I certainly disavowed it and decided to make my own flash card which ended up with much better visual like this:

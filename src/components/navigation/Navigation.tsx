@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 import React from "react";
-import {useAppDispatch, useAppSelector} from "../hooks";
+import {useAppDispatch, useAppSelector} from "../../hooks";
 
 import "./Navigation.css"
 
@@ -29,7 +29,7 @@ import {
   selectHoveredLanguage,
   selectNavigationExpanded,
   setHoveredLanguage,
-} from "../appSlice";
+} from "../../appSlice";
 
 export default function Navigation() {
   const navigationExpanded = useAppSelector(selectNavigationExpanded)
