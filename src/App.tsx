@@ -61,7 +61,7 @@ function App() {
           elementId: node.id,
           labels: node.language ? ["Term"] : ["Definition"],
           properties: {
-            name: node.name
+            name: node.label
           },
           propertyTypes: {
             name: "string"
@@ -72,7 +72,7 @@ function App() {
           elementId: link.sourceNodeId + link.targetNodeId,
           startNodeId: link.sourceNodeId,
           endNodeId: link.targetNodeId,
-          type: link.name,
+          type: link.label,
           properties: {},
           propertyTypes: {}
         }}) as []
