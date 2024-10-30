@@ -20,6 +20,21 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from "react-redux";
 import { store } from "./store";
+import * as Sentry from "@sentry/react";
+
+if (process.env.NODE_ENV === 'production') {
+  Sentry.init({
+    dsn: "https://f1e4d60249517cd3d81f7badabf68d61@o4505480921022464.ingest.us.sentry.io/4508210539528192",
+    integrations: [
+      Sentry.browserTracingIntegration(),
+      Sentry.replayIntegration(),
+    ],
+    tracesSampleRate: 1.0,
+    tracePropagationTargets: ["localhost", /^https:\/\/wilhelmlang\.com/],
+    replaysSessionSampleRate: 0.1,
+    replaysOnErrorSampleRate: 1.0
+  });
+}
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

@@ -21,6 +21,8 @@ name: CI/CD
       - master
 
 env:
+  USER: QubitPi
+  EMAIL: jack20220723@gmail.com
   NODE_VERSION: 18
 
 jobs:
@@ -47,8 +49,23 @@ jobs:
           node-version: ${{ env.node_version }}
       - name: Install dependencies
         run:  npm install -g yarn@1.22.19 && yarn
+      - name: Load .env file
+        run: mv .env.prod .env
       - name: Test production build
         run: yarn build
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      - name: Load CNAME
+        run: cp CNAME build
+      - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/master'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build
+          enable_jekyll: false
+          user_name: ${{ env.USER }}
+          user_email: ${{ env.EMAIL }}
 
   list-e2e-specs:
     name: Enumerate E2E tests and prepare to run them in parallel
@@ -97,6 +114,8 @@ jobs:
               npm install -g serve
               serve -s build -l 3000 &
           fi
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
       - name: Wait until app is up and running
         run: wait-on http://127.0.0.1:3000
       - name: Run E2E tests
