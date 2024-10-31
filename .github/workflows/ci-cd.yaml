@@ -36,40 +36,8 @@ jobs:
         with:
           access_token: ${{ github.token }}
 
-  production-build:
-    name: Test Production Build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Set node version to ${{ env.node_version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ env.node_version }}
-      - name: Install dependencies
-        run:  npm install -g yarn@1.22.19 && yarn
-      - name: Load .env file
-        run: mv .env.prod .env
-      - name: Test production build
-        run: yarn build
-        env:
-          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-      - name: Load CNAME
-        run: cp CNAME build
-      - name: Deploy to GitHub Pages
-        if: github.ref == 'refs/heads/master'
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: build
-          enable_jekyll: false
-          user_name: ${{ env.USER }}
-          user_email: ${{ env.EMAIL }}
-
   list-e2e-specs:
     name: Enumerate E2E tests and prepare to run them in parallel
-    needs: [production-build]
     runs-on: ubuntu-latest
     outputs:
       paths: ${{ steps.list-e2e-specs.outputs.paths }}
@@ -114,8 +82,6 @@ jobs:
               npm install -g serve
               serve -s build -l 3000 &
           fi
-        env:
-          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
       - name: Wait until app is up and running
         run: wait-on http://127.0.0.1:3000
       - name: Run E2E tests
@@ -133,3 +99,37 @@ jobs:
           path: |
             ./cypress/videos
             ./cypress/screenshots
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: [e2e-tests]
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Set node version to ${{ env.node_version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.node_version }}
+      - name: Install dependencies
+        run:  npm install -g yarn@1.22.19 && yarn
+      - name: Load .env file
+        run: mv .env.prod .env
+      - name: Test production build
+        run: yarn build
+      - name: Upload sourcemaps to sentry.io
+        run: yarn sentry:sourcemaps
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      - name: Load CNAME
+        run: cp CNAME build
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build
+          enable_jekyll: false
+          user_name: ${{ env.USER }}
+          user_email: ${{ env.EMAIL }}

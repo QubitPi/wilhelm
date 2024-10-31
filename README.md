@@ -3,6 +3,7 @@ Wilhelm
 
 ![Node Version][node version badge]
 [![GitHub workflow status badge][GitHub workflow status badge]][GitHub workflow status URL]
+[![sentry badge]](https://paion-data.sentry.io/projects/wilhelm/)
 [![Apache License][Apache License Badge]][Apache License, Version 2.0]
 
 __Wilhelm__ is a Quizlet alternative that helps with learning German, Ancient Greek, and Latin with 2 unique features:
@@ -19,7 +20,7 @@ How Did Project Wilhelm Start
 Wilhelm started out as a Quizlet "companion" with no intent to be used by anyone other than myself.
 
 I was studying Ancient Greek vocabulary on Quizlet the other day and got shockingly frustrated by their flashcards with
-this horribly formatted Greek text
+this horribly formatted Greek text:
 
 <div align="center">
     <img src="./bad-font.png" width="60%">
@@ -102,5 +103,7 @@ The use and distribution terms for [wilhelm]() are covered by the [Apache Licens
 [GitHub workflow status URL]: https://github.com/QubitPi/wilhelm/actions/workflows/ci-cd.yaml
 
 [node version badge]: https://img.shields.io/badge/NODE-18-339933?logo=Node.js&logoColor=white&labelColor=66cc33&style=for-the-badge
+
+[sentry badge]: https://img.shields.io/badge/sentry.io-362D59?logo=sentry&logoColor=white&&style=for-the-badge
 
 [^1]: https://tex.stackexchange.com/a/163342/277953

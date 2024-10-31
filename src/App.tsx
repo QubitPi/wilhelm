@@ -59,7 +59,7 @@ function App() {
         nodes: (graph.get("nodes") as any[]).map(node => {return {
           id: node.id,
           elementId: node.id,
-          labels: node.language ? ["Term"] : ["Definition"],
+          labels: node.attributes.language ? ["Term"] : ["Definition"],
           properties: {
             name: node.label
           },
