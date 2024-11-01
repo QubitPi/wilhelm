@@ -36,7 +36,32 @@ jobs:
         with:
           access_token: ${{ github.token }}
 
+  yaml-lint:
+    name: YAML Style Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actionshub/yamllint@main
+
+  markdown-lint:
+    name: Markdown Style Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actionshub/markdownlint@main
+
+  linkChecker:
+    name: Link Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Link Checker
+        uses: lycheeverse/lychee-action@v1.9.0
+        with:
+          fail: true
+
   unit-tests:
+    needs: [yaml-lint, markdown-lint, linkChecker]
     name: Unit tests
     runs-on: ubuntu-latest
     steps:
@@ -89,7 +114,7 @@ jobs:
       - name: Start app in ${{ matrix.mode }} mode
         run: |
           yarn global add wait-on
-          
+
           if [[ ${{ matrix.mode }} == 'dev' ]]; then
               yarn start &
           else
@@ -129,7 +154,7 @@ jobs:
         with:
           node-version: ${{ env.node_version }}
       - name: Install dependencies
-        run:  npm install -g yarn@1.22.19 && yarn
+        run: npm install -g yarn@1.22.19 && yarn
       - name: Load .env file
         run: mv .env.prod .env
       - name: Test production build

@@ -40,17 +40,17 @@ I certainly disavowed it and decided to make my own flash card which ended up wi
 >
 > The new font above was inspired by the Zeph fonts invented by
 > [the Loeb Classical Library in Harvard University](https://www.hup.harvard.edu/series/loeb-classical-library), who publishes Ancient Greek and Latin original texts
-> I've been enjoying reading since I was a college student. 
-> 
+> I've been enjoying reading since I was a college student.
+>
 > The Zeph fonts are based on 'Porson' Greek
 > [according to the information provided by Harvard University Press](https://www.loebclassics.com/page/logo) (HUP). But
 > the Zeph* fonts themselves seem to be custom commissions for HUP for use in Loeb books, which means the fonts are
 > close-sourced[^1].
-> 
+>
 > The closest font I found, thus, is the [GFS Porson for Ancient Greek](https://www.oocities.org/greekfonts/) which ended up being the Greek font I use
 > for the flash cards in this project
 
-### Why Do I Decide to Scale Project Wilhelm?
+### Why Do I Decide to Scale Project Wilhelm
 
 Right after, I began to realize I could simply throw Quizlet to trash. I deleted my Quizlet account and relied solely on
 Wilhelm. I was happy that I found a lot more pleasure studying languages with Wilhelm than I did on Quizlet.
@@ -59,13 +59,13 @@ In the meantime, I've been interested in Indo-European languages. Having been co
 Latin, and German, I got constantly well impressed by how these languages are
 [_connected in various interesting ways_](https://github.com/QubitPi/wilhelm-vocabulary?tab=readme-ov-file#interesting-queries).
 I then believe making such connections between languages visually explicit shall __boost people to learn multiple
-languages much faster__. 
+languages much faster__.
 
 Development
 -----------
 
 > [!IMPORTANT]
-> 
+>
 > Wilhelm requires Node 18 or above
 
 ### Starting Locally
