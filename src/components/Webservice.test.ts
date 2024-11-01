@@ -13,12 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import {urlEncode} from "./Webservice";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+test("term, which is to be expanded, is URL encoded", () => {
+  expect(urlEncode("Ich gehe in den/in die/ins")).toEqual("Ich%20gehe%20in%20den%2Fin%20die%2Fins")
+})

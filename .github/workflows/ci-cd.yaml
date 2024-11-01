@@ -36,7 +36,22 @@ jobs:
         with:
           access_token: ${{ github.token }}
 
+  unit-tests:
+    name: Unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set node version to ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Install dependencies
+        run: npm install -g yarn@1.22.19 && yarn
+      - name: Run unit tests
+        run: yarn test
+
   list-e2e-specs:
+    needs: unit-tests
     name: Enumerate E2E tests and prepare to run them in parallel
     runs-on: ubuntu-latest
     outputs:

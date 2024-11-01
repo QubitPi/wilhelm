@@ -73,7 +73,7 @@ export async function expand(term: string): Promise<Map<string, Array<any>>> {
   graph.set("nodes", [])
   graph.set("links", [])
 
-  await fetch(new URL("wilhelm/expand/" + term, WEBSERVICE_URL))
+  await fetch(new URL("wilhelm/expand/" + urlEncode(term), WEBSERVICE_URL))
       .then(response => response.json())
       .then(data => {
         for (let node of data["nodes"]) {
@@ -85,4 +85,8 @@ export async function expand(term: string): Promise<Map<string, Array<any>>> {
       })
 
   return graph
+}
+
+export function urlEncode(term: string): string {
+  return encodeURIComponent(term)
 }
