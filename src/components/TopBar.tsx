@@ -18,7 +18,6 @@ import {useAppDispatch, useAppSelector} from "../hooks";
 import {selectAboutModalShow, selectNavigationExpanded, setAboutModalShow, setNavigationExpanded} from "../appSlice";
 
 import { ReactComponent as Menu } from "./menu.svg"
-import { ReactComponent as Search } from "./search.svg"
 import { ReactComponent as About } from "./about.svg"
 
 import "./TopBar.css"
@@ -37,13 +36,6 @@ export default function TopBar() {
       <div className="topbar">
         <div className="toggle" onClick={handleToggleClick}>
           <Menu className="toggle-icon"/>
-        </div>
-
-        <div className="search">
-          <label>
-            <input type="text" placeholder="Search here"/>
-            <Search className="icon"/>
-          </label>
         </div>
 
         <div className="about">
