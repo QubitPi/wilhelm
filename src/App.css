@@ -31,12 +31,16 @@ body {
 }
 
 .container {
+  display: flex;
   position: relative;
   width: 100%;
 }
 
-/* ===================== Main ===================== */
-.main {
+.navigationSection {
+
+}
+
+.mainSection {
   position: absolute;
   width: calc(100% - 300px);
   left: 300px;
@@ -44,7 +48,7 @@ body {
   background: var(--white);
   transition: 0.5s;
 }
-.main.active {
+.mainSection.active {
   width: calc(100% - 80px);
   left: 80px;
 }

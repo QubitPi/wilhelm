@@ -84,8 +84,10 @@ function App() {
   return (
       <>
         <div className="container">
-          <Navigation/>
-          <div className={navigationExpanded ? "main" : "main active"}>
+          <div className="navigationSection">
+            <Navigation/>
+          </div>
+          <div className={navigationExpanded ? "mainSection" : "mainSection active"}>
             <TopBar/>
 
             <div className="flashcards">
