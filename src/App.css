@@ -33,6 +33,43 @@ body {
 .container {
   position: relative;
   width: 100%;
+
+  animation: fadein 2s;
+  -moz-animation: fadein 2s; /* Firefox */
+  -webkit-animation: fadein 2s; /* Safari and Chrome */
+  -o-animation: fadein 2s; /* Opera */
+}
+@keyframes fadein {
+  from {
+    opacity:0;
+  }
+  to {
+    opacity:1;
+  }
+}
+@-moz-keyframes fadein { /* Firefox */
+  from {
+    opacity:0;
+  }
+  to {
+    opacity:1;
+  }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+  from {
+    opacity:0;
+  }
+  to {
+    opacity:1;
+  }
+}
+@-o-keyframes fadein { /* Opera */
+  from {
+    opacity:0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .navigationSection {
@@ -56,7 +93,6 @@ body {
   left: 80px;
 }
 
-/* ====================== Flashcard Section ========================== */
 .flashcards {
   display: flex;
   flex-direction: row;
@@ -92,11 +128,21 @@ body {
   transform: rotate(90deg);
 }
 
-/* ====================== Graph Browser ========================== */
-.graph-browser {
+.graphBrowser {
+  margin-left: 30px;
   width: 100%;
   height: 800px;
   align-items: center;
+
+  margin-bottom: -2rem;
+
+  background: white;
+  background: linear-gradient(
+          to right bottom,
+          rgba(255, 255, 255, 0.7),
+          rgba(255, 255, 255, 0.3)
+  );
+  border-radius: 2rem 2rem 0.5rem 0.5rem;
 }
 
 /* ====================== Responsive Design ========================== */

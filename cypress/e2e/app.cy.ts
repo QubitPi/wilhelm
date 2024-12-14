@@ -28,7 +28,7 @@ describe('Home Page Rendering', () => {
 
   it('displays graph section', () => {
     cy
-        .get('*[class^="graph-browser"]')
+        .get('*[class^="graphBrowser"]')
         .should("exist");
   })
 

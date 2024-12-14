@@ -115,7 +115,7 @@ function App() {
               }
             </div>
 
-            <div className="graph-browser">
+            <div className="graphBrowser">
               {
                 displayedGraph.nodes.length > 0 &&
                   <GraphBrowser nodes={displayedGraph.nodes} links={displayedGraph.links}/>
