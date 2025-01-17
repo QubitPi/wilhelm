@@ -12,7 +12,7 @@ __Wilhelm__ is a Quizlet alternative that helps with learning German, Ancient Gr
 2. Utilizing knowledge graph to visualize connections among Indo-European languages which greatly make multilingual
    study much more efficient
 
-Please check out the app on [wilhelmlang.com](https://wilhelmlang.com/)
+Please check out the app on [wilhelm.qubitpi.org](https://wilhelm.qubitpi.org/)
 
 How Did Project Wilhelm Start
 -----------------------------
