@@ -1,12 +1,34 @@
-Wilhelm
-=======
+# Wilhelm
 
-![Node Version][node version badge]
-[![GitHub workflow status badge][GitHub workflow status badge]][GitHub workflow status URL]
-[![sentry badge]](https://paion-data.sentry.io/projects/wilhelm/)
-[![Apache License][Apache License Badge]][Apache License, Version 2.0]
+<div align="center">
+    <a href="https://github.com/QubitPi/wilhelm/actions/workflows/ci-cd.yaml"><img src="https://img.shields.io/github/actions/workflow/status/QubitPi/wilhelm/ci-cd.yaml?branch=master&style=for-the-badge&logo=github&logoColor=white&label=CI/CD" alt="CI/CD"/></a>
+    <a href="https://paion-data.sentry.io/issues/?project=4508210539528192"><img src="https://img.shields.io/badge/Application%20Monitoring-362D59.svg?style=for-the-badge&logo=sentry&logoColor=white" alt="sentry.io"/></a>
+    <img src="https://img.shields.io/badge/NODE-18-339933?logo=Node.js&logoColor=white&labelColor=66cc33&style=for-the-badge" alt="Node 18"/>
+    <img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white&style=for-the-badge" alt="TypeScript"/>
+    <img src="https://img.shields.io/badge/webpack-8DD6F9?logo=webpack&logoColor=white&style=for-the-badge" alt="webpack"/>
+    <a href="https://yarnpkg.com/"><img src="https://img.shields.io/badge/Yarn%202-2C8EBB?style=for-the-badge&logo=yarn&logoColor=white" alt="Yarn 2"/></a>
+    <a href="https://eslint.org/"><img src="https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white" alt="ESLint"/></a>
+    <a href="https://prettier.io/"><img src="https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=white" alt="Prettier"/></a>
+    <a href="https://jest.qubitpi.org/"><img src="https://img.shields.io/badge/Jest%20Unit%20Tests-C21325?style=for-the-badge&logo=jest&logoColor=white" alt="Jest"/></a>
+    <a href="https://cypress.qubitpi.org"><img src="https://img.shields.io/badge/Cypress%20E2E-69D3A7?style=for-the-badge&logo=cypress&logoColor=white" alt="Cypress"/></a>
+    <a href="https://developer.chrome.com/docs/lighthouse/overview"><img src="https://img.shields.io/badge/Lighthouse-F44B21?style=for-the-badge&logo=lighthouse&logoColor=white" alt="Lighthouse"/></a>
+    <a href="https://www.apache.org/licenses/LICENSE-2.0"><img src="https://img.shields.io/badge/Apache%202.0-F25910.svg?style=for-the-badge&logo=Apache&logoColor=white" alt="Apache License"/></a>
+    <br/>
+    <a href="https://app.argos-ci.com/qubitpi/wilhelm/reference"><img src="https://argos-ci.com/badge-large.svg" alt="Argos Visual Testing"/></a>
+</div>
 
-__Wilhelm__ is a Quizlet alternative that helps with learning German, Ancient Greek, and Latin with 2 unique features:
+<!-- TOC -->
+
+- [Wilhelm](#wilhelm)
+  - [How Did Project Wilhelm Start](#how-did-project-wilhelm-start)
+    - [Why Do I Decide to Scale Project Wilhelm](#why-do-i-decide-to-scale-project-wilhelm)
+  - [Development](#development)
+    - [Starting Locally](#starting-locally)
+    - [Testing](#testing)
+  - [License](#license)
+  <!-- TOC -->
+
+**Wilhelm** is a Quizlet alternative that helps with learning German, Ancient Greek, and Latin with 2 unique features:
 
 1. Applying historical fonts that is unique to each language
 2. Utilizing knowledge graph to visualize connections among Indo-European languages which greatly make multilingual
@@ -14,8 +36,7 @@ __Wilhelm__ is a Quizlet alternative that helps with learning German, Ancient Gr
 
 Please check out the app on [wilhelm.qubitpi.org](https://wilhelm.qubitpi.org/)
 
-How Did Project Wilhelm Start
------------------------------
+## How Did Project Wilhelm Start
 
 Wilhelm started out as a Quizlet "companion" with no intent to be used by anyone other than myself.
 
@@ -23,7 +44,7 @@ I was studying Ancient Greek vocabulary on Quizlet the other day and got shockin
 this horribly formatted Greek text:
 
 <div align="center">
-    <img src="./bad-font.png" width="60%">
+    <img src="./docs/bad-font.png" width="60%">
 </div>
 
 Quizlet didn't believe that each language shines with their unique fonts from history (such as
@@ -33,7 +54,7 @@ They simply applied a monofont for all languages which, in the case of Greek, ma
 I certainly disavowed it and decided to make my own flash card which ended up with much better visual like this:
 
 <div align="center">
-    <img src="./good-font.png" width="70%">
+    <img src="./docs/good-font.png" width="70%">
 </div>
 
 > [!NOTE]
@@ -44,7 +65,7 @@ I certainly disavowed it and decided to make my own flash card which ended up wi
 >
 > The Zeph fonts are based on 'Porson' Greek
 > [according to the information provided by Harvard University Press](https://www.loebclassics.com/page/logo) (HUP). But
-> the Zeph* fonts themselves seem to be custom commissions for HUP for use in Loeb books, which means the fonts are
+> the Zeph\* fonts themselves seem to be custom commissions for HUP for use in Loeb books, which means the fonts are
 > close-sourced[^1].
 >
 > The closest font I found, thus, is the [GFS Porson for Ancient Greek](https://www.oocities.org/greekfonts/) which ended up being the Greek font I use
@@ -58,52 +79,89 @@ Wilhelm. I was happy that I found a lot more pleasure studying languages with Wi
 In the meantime, I've been interested in Indo-European languages. Having been concurrently studying Ancient Greek,
 Latin, and German, I got constantly well impressed by how these languages are
 [_connected in various interesting ways_](https://github.com/QubitPi/wilhelm-vocabulary?tab=readme-ov-file#interesting-queries).
-I then believe making such connections between languages visually explicit shall __boost people to learn multiple
-languages much faster__.
+I then believe making such connections between languages visually explicit shall **boost people to learn multiple
+languages much faster**.
 
-Development
------------
+## Development
 
-> [!IMPORTANT]
->
-> Wilhelm requires Node 18 or above
+Wilhelm has the following packages:
 
-### Starting Locally
+- [`wilhelm-app`](packages/wilhelm-app): holding business logics of the app
+- [`wilhelm-redux`](packages/wilhelm-redux): managing all app states. Wilhelm uses
+  [Redux state management][Redux]
+  [![Redux Badge](https://img.shields.io/badge/Redux-764ABC?logo=redux&logoColor=white&style=flat-square)][Redux]
+  instead of ~~[React state management][useState]~~ for a much more maintainable decoupling of React components
 
-To start Wilhelm locally:
+### Getting Source Code
 
 ```console
 git clone git@github.com:QubitPi/wilhelm.git
 cd wilhelm
-yarn
-yarn start
 ```
 
-Then visit [localhost:3000](http://localhost:3000/)
+Install dependencies by
 
-### Testing
+> [!NOTE]
+>
+> Node 18 and Yarn 2 must be installed in local environment.
 
-- Unit Tests: TBA
-- E2E Tests: [Cypress] is used for E2E tests. To run them locally, first start the Wilhelm app locally with
-  `yarn start`. Then we can run E2E tests either in terminal with `yarn e2e` or through Cypress UI with `yarn cy:open`.
-  If E2E tests fail in CI/CD, the testing screenshot and video will be generated and can be downloaded at the bottom of
-  each action run page
+```console
+yarn
+```
 
-License
--------
+### Scripts
 
-The use and distribution terms for [wilhelm]() are covered by the [Apache License, Version 2.0].
+- `yarn start`: Runs the app in development mode. Open http://localhost:3000 to view it in the browser. The page automatically reloads
+  if we make changes to the code. we will see the build errors and lint warnings in the console.
+- `yarn test`: Runs the unit tests
+- `yarn cypress:open` & `yarn e2e`: Opens Cypress End-to-End test console and runs the End-to-End tests, respectively
+- `yarn build`: Builds the app for production to the build folder. It correctly bundles React in production mode and
+  optimizes the build for the best performance. The build is minified and the filenames include the hashes.
 
+### Automatically Formatting Codebase
+
+When CI/CD complains about "Code style check" as the following:
+
+![](./docs/cicd-code-style-check-error-example.png)
+
+Simply run the following command at project root which will auto formatting the codebase using Prettier:
+
+```console
+yarn prettier --ignore-path .gitignore . --write
+```
+
+> [!TIP]
+>
+> It's always a good practice to auto-formatting code whenever convenient <img src="https://github.com/QubitPi/QubitPi/blob/master/img/%E5%BF%83%E6%B5%B7.png?raw=true" width="60px" />
+
+## Application Monitoring
+
+sentry.io has been integrated into the [wilhelm.qubitpi.org](https://wilhelm.qubitpi.org/). Specifically:
+
+- [sourcemap](https://docs.sentry.io/platforms/javascript/legacy-sdk/sourcemaps/) is uploaded to sentry during build time
+- error trace are sent to sentry during run time
+
+While error trace will always be sent in production mode (`process.env.NODE_ENV === "production"`), an
+[.env.sentry-build-plugin](https://docs.sentry.io/platforms/javascript/sourcemaps/uploading/webpack/) is, however,
+required for `yarn build` to be able to generate and upload the sourcemap.
+
+> [!NOTE]
+>
+> If the `.env.sentry-build-plugin` is not present, `yarn build` will still run successfully. It's just not possible
+> then to locate the exact location of error in code on sentry issue console because sourcemap hasn't been uploaded
+
+## License
+
+The use and distribution terms for [wilhelm]() are covered by the [Apache License, Version 2.0](./LICENSE).
+
+[Redux]: https://react-redux.qubitpi.org/
+[useState]: https://react.qubitpi.org/reference/react/useState
 [Apache License, Version 2.0]: https://www.apache.org/licenses/LICENSE-2.0
 [Apache License Badge]: https://img.shields.io/badge/Apache%202.0-F25910.svg?style=for-the-badge&logo=Apache&logoColor=white
-
 [Cypress]: https://cypress.qubitpi.org/
-
 [GitHub workflow status badge]: https://img.shields.io/github/actions/workflow/status/QubitPi/wilhelm/ci-cd.yaml?branch=master&style=for-the-badge&logo=github&logoColor=white&label=CI/CD
 [GitHub workflow status URL]: https://github.com/QubitPi/wilhelm/actions/workflows/ci-cd.yaml
-
 [node version badge]: https://img.shields.io/badge/NODE-18-339933?logo=Node.js&logoColor=white&labelColor=66cc33&style=for-the-badge
-
 [sentry badge]: https://img.shields.io/badge/sentry.io-362D59?logo=sentry&logoColor=white&&style=for-the-badge
 
 [^1]: https://tex.stackexchange.com/a/163342/277953

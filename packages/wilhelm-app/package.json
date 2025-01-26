@@ -1,0 +1,8 @@
+{
+  "name": "wilhelm-app",
+  "dependencies": {
+    "neo4j-devtools-arc": "^0.0.83",
+    "neo4j-driver-core": "5.9.2",
+    "react-quizlet-flashcard": "^3.0.0"
+  }
+}

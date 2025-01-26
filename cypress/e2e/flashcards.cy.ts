@@ -1,5 +1,5 @@
 /**
- * Copyright Jiaqi Liu
+ * Copyright 2025 Jiaqi Liu. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,25 +14,21 @@
  * limitations under the License.
  */
 
-describe('Flashcard Section Rendering', () => {
+describe("Flashcard Section Rendering", () => {
   beforeEach(() => {
-    cy
-        .visit("http://localhost:3000/")
-  })
+    cy.visit("http://localhost:3000/");
+  });
 
-  it('always displays the forward button', () => {
-    cy
-        .get('*[class="vocArrow next"]')
-        .should("exist");
-  })
+  it("always displays the forward button", () => {
+    cy.get('*[class="vocArrow next"]').should("exist");
+  });
 
-  it('displays the backward button once the forward button is clicked', () => {
-    cy
-        .get('*[class="vocArrow prev"]')
-        .should("not.exist")
-        .get('*[class="vocArrow next"]')
-        .click()
-        .get('*[class="vocArrow prev"]')
-        .should("exist")
-  })
-})
+  it("displays the backward button once the forward button is clicked", () => {
+    cy.get('*[class="vocArrow prev"]')
+      .should("not.exist")
+      .get('*[class="vocArrow next"]')
+      .click()
+      .get('*[class="vocArrow prev"]')
+      .should("exist");
+  });
+});
